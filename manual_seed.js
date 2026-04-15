@@ -16,10 +16,7 @@ if (!DATABASE_URL) {
 
 // For Supabase/pgbouncer: do NOT use node-postgres pooling here, postgres lib is fine.
 // Provide ssl: { rejectUnauthorized: false } to avoid cert issues with some providers.
-const sql = postgres(DATABASE_URL, {
-  ssl: { rejectUnauthorized: false },
-  // You can tune max connections etc. if needed
-});
+import { sql } from '@/app/lib/db';
 
 
 const users = [

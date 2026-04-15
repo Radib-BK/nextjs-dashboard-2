@@ -1,10 +1,6 @@
 import postgres from 'postgres';
 
-// ✅ local postgres connection
-const sql = postgres(process.env.POSTGRES_URL!, {
-  ssl: false,
-  max: 10,
-});
+import { sql } from '@/app/lib/db';
 
 async function listInvoices() {
   const data = await sql`
